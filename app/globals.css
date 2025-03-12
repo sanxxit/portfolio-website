@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 225 25% 7%;
+    --foreground: 213 31% 91%;
+
+    --primary: 142 71% 45%;
+    --primary-foreground: 210 40% 98%;
+
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+
+    --accent: 216 34% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+
+    --card: 224 71% 4%;
+    --card-foreground: 213 31% 91%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 142 71% 45%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 142.1 70.6% 45.3%;
+    --primary-foreground: 144.9 80.4% 10%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 142.1 76.2% 36.3%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    background-image: url('/doodles/pattern.svg');
+    background-repeat: repeat;
+    background-size: 40px 40px;
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+  /* Enhanced glass effect */
+  .glass-effect {
+    @apply bg-background/80 backdrop-blur-md;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  /* Container with glass effect */
+  .container-glass {
+    @apply glass-effect rounded-xl p-6 md:p-8;
+  }
+
+  /* Gradient text effect */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary via-primary/80 to-primary-foreground bg-clip-text text-transparent;
+  }
+
+  /* Hover effects */
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  /* Card effects */
+  .card-hover {
+    @apply transition-all duration-300;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+  }
+
+  .card-hover:hover {
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    transform: translateY(-2px);
+  }
+
+  /* Button effects */
+  .button-glow {
+    @apply relative overflow-hidden;
+  }
+
+  .button-glow::after {
+    content: '';
+    @apply absolute inset-0 rounded-lg opacity-0 transition-opacity duration-300;
+    background: radial-gradient(circle at center, var(--primary) 0%, transparent 70%);
+  }
+
+  .button-glow:hover::after {
+    @apply opacity-20;
+  }
+
+  /* Section gradients */
+  .section-gradient {
+    @apply relative;
+  }
+
+  .section-gradient::before {
+    content: '';
+    @apply absolute inset-0 -z-10;
+    background: radial-gradient(circle at top right, hsl(var(--primary)/0.15), transparent 70%),
+                radial-gradient(circle at bottom left, hsl(var(--primary)/0.1), transparent 70%);
+  }
+}
+
+/* Contribution graph styles */
+.contribution-graph {
+  display: grid;
+  grid-template-columns: repeat(53, 1fr);
+  gap: 3px;
+}
+
+.contribution-day {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  transition: transform 0.2s ease;
+}
+
+.contribution-day:hover {
+  transform: scale(1.2);
+}
+
+@media (min-width: 768px) {
+  .contribution-graph {
+    gap: 4px;
+  }
+
+  .contribution-day {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+/* Neural network inspired gradients */
+.neural-gradient-1 {
+  background: linear-gradient(135deg, hsl(225, 25%, 7%) 0%, hsl(223, 47%, 11%) 100%);
+}
+
+.neural-gradient-2 {
+  background: linear-gradient(45deg, hsl(142, 71%, 45%) 0%, hsl(180, 71%, 45%) 100%);
+}
+
+.neural-border {
+  border: 1px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to right, hsl(142, 71%, 45%), hsl(180, 71%, 45%));
+}
+
+/* Card hover effects */
+.card-hover:hover {
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transform: translateY(-2px);
+}
+
