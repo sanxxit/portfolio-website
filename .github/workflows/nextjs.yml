@@ -18,7 +18,7 @@ permissions:
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   # Build job
@@ -31,15 +31,19 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: npm
+          cache: 'npm'
       - name: Setup Pages
         uses: actions/configure-pages@v4
         with:
           static_site_generator: next
       - name: Install dependencies
-        run: npm ci
+        run: |
+          npm install
+          npm ci
       - name: Build with Next.js
         run: npm run build
+        env:
+          NODE_ENV: production
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

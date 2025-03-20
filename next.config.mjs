@@ -14,7 +14,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   output: 'export',  // Enable static exports
-  basePath: '/portfolio-website', // Add base path for GitHub Pages
+  basePath: process.env.NODE_ENV === 'production' ? '/portfolio-website' : '',
   images: {
     unoptimized: true, // Required for static export
     domains: ["cdn.hashnode.com"], // Allow images from Hashnode
@@ -25,7 +25,8 @@ const nextConfig = {
     parallelServerCompiles: true,
   },
   // Add assetPrefix for GitHub Pages
-  assetPrefix: '/portfolio-website/',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/portfolio-website/' : '',
+  trailingSlash: true,
 }
 
 // ✅ Merge user config if it exists
