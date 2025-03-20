@@ -13,15 +13,19 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  output: 'export',  // Enable static exports
+  basePath: '/portfolio-website', // Add base path for GitHub Pages
   images: {
-    domains: ["cdn.hashnode.com"], // ✅ Allow images from Hashnode
-    unoptimized: true,
+    unoptimized: true, // Required for static export
+    domains: ["cdn.hashnode.com"], // Allow images from Hashnode
   },
   experimental: {
     webpackBuildWorker: true,
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
   },
+  // Add assetPrefix for GitHub Pages
+  assetPrefix: '/portfolio-website/',
 }
 
 // ✅ Merge user config if it exists
