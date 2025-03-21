@@ -14,6 +14,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   output: 'export',  // Enable static exports
+  basePath: '/portfolio-website',
   images: {
     unoptimized: true, // Required for static export
     domains: ["cdn.hashnode.com"], // Allow images from Hashnode
