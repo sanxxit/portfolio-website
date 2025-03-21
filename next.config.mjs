@@ -14,7 +14,8 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   output: 'export',  // Enable static exports
-  basePath: '/portfolio-website',
+  basePath: process.env.NODE_ENV === 'production' ? '/portfolio-website' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? 'https://sanxxit.github.io/portfolio-website' : '',
   images: {
     unoptimized: true, // Required for static export
     domains: ["cdn.hashnode.com"], // Allow images from Hashnode

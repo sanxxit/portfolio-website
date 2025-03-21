@@ -2,10 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0;url=/portfolio-website/">
-    <title>Redirecting...</title>
+    <meta http-equiv="refresh" content="0;url=https://sanxxit.github.io/portfolio-website/">
+    <title>Redirecting to Portfolio</title>
+    <script>
+        window.location.href = 'https://sanxxit.github.io/portfolio-website/';
+    </script>
 </head>
 <body>
-    <p>If you are not redirected automatically, <a href="/portfolio-website/">click here</a>.</p>
+    <p>If you are not redirected automatically, <a href="https://sanxxit.github.io/portfolio-website/">click here</a>.</p>
+    <script>
+        // Fallback redirect
+        setTimeout(function() {
+            window.location.href = 'https://sanxxit.github.io/portfolio-website/';
+        }, 1000);
+    </script>
 </body>
 </html> 
