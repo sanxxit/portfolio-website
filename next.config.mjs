@@ -14,19 +14,16 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   output: 'export',  // Enable static exports
-  basePath: process.env.NODE_ENV === 'production' ? '/portfolio-website' : '',
   images: {
     unoptimized: true, // Required for static export
     domains: ["cdn.hashnode.com"], // Allow images from Hashnode
   },
-  experimental: {
-    webpackBuildWorker: true,
-    parallelServerBuildTraces: true,
-    parallelServerCompiles: true,
-  },
-  // Add assetPrefix for GitHub Pages
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/portfolio-website/' : '',
+  // Remove basePath and assetPrefix for simpler configuration
   trailingSlash: true,
+  // Disable server components since we're doing static export
+  experimental: {
+    appDir: true,
+  },
 }
 
 // ✅ Merge user config if it exists

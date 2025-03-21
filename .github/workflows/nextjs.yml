@@ -30,24 +30,18 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: 20
           cache: 'npm'
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-        with:
-          static_site_generator: next
       - name: Install dependencies
-        run: |
-          npm install
-          npm ci
+        run: npm ci
       - name: Build with Next.js
         run: npm run build
-        env:
-          NODE_ENV: production
+      - name: Touch
+        run: touch out/.nojekyll
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          path: out
 
   # Deployment job
   deploy:
